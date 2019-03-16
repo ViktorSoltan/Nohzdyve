@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+	body {
+		margin:0;
+	}
+  canvas{
+  	
+background: black;
+margin: 0 auto;
+display: block;
+}
+ form {
+  width: 140px;
+  position: absolute;
+  top: 100px;
+  left: 20px;
+ }
+</style>
+</head>
+<body onload="setTimeout('getSecs(),game()')">
+
+<div id="Fall"></div>
+
+<canvas id="Mycanvas" height="697" width="800"></canvas> 
+
+<script type="text/javascript">
+startday = new Date();
+clockStart = startday.getTime();
+
+function initStopwatch() {
+    var myTime = new Date();
+    var timeNow = myTime.getTime();
+    var timeDiff = timeNow - clockStart;
+    this.diffSecs = timeDiff/1000;
+    return(this.diffSecs); 
+}
+
+function getSecs() {
+    var mySecs = initStopwatch();
+    var mySecs1 = ""  + mySecs;
+    mySecs1= mySecs1.substring(0,mySecs1.indexOf(".")) + " secs.";
+    window.setTimeout('getSecs()',1000); 
+
+}
+
+
+function game() {
+
+
+var canvas = document.getElementById("Mycanvas");
+var ctx = canvas.getContext("2d");
+
+
+
+function past(){
+  var fall = 0;
+  var boi = 0;
+  fall += dy;
+  document.getElementById("Fall").innerHTML = fall;
+  console.log(fall);
+  if (boi == 0) {
+  alert(fall);
+  }
+}
+
+setTimeout(function key(){
+window.onkeydown = processKey;
+}, 2000);  
+   
+    var img = new Image(),
+    mdma = new Image(),
+    cocain = new Image(),
+    beer = new Image(),
+    syring = new Image(),
+    record = new Image(),
+    img1 = new Image(),
+    img3 = new Image(),
+    windowpic = new Image(),
+    myImage = new Image(),
+    myImage1 = new Image();
+    pers = new Image(),
+    smit2 = new Image(),
+    gameover = new Image(),
+    x = 330,
+    j = 190,
+    n = 100,
+    k = 80,
+    y = canvas.height-348,
+    b = 237,
+    z = 240,
+    q = 197,
+    u = canvas.height-98,
+    de = canvas.height-697,
+    pe = canvas.height-697,
+    t = canvas.height-897,
+    rec = 740,
+    rec1 = 713,
+    Viktor = canvas.height,
+    ves = canvas.height-50,
+    ves1 = canvas.height-50,
+    ves2 = canvas.height-50,
+    ves3 = canvas.height-50,
+    dx = 0,
+    dp = -5,
+    dy = -6,
+    dz = -1,
+    dc = -1;
+    dk = 3;
+    var drt = 1000;
+    var num = 170; 
+    var num1 = 290; 
+    var num2 = 420; 
+    var num3 = 545; 
+    var foo = [randomInteger(130, 550)];
+    let num4 = randomInteger(130, 550);
+    
+    mdma.src = "mdma.png";
+    beer.src = "beer.jpg";
+    syring.src = "syring.png";
+    cocain.src = "cocain.png";
+    record.src = "record.png";
+    gameover.src = "Over.png";
+    windowpic.src = "window.png";
+    pers.src = "smit1.png";    
+    smit2.src = "smit2.png";
+    img.src = "wall111.png";
+    img1.src = "wall222.png";
+    img3.src = "3.png";
+    myImage.src = "гр.png";
+    myImage1.src = "кон.png";
+
+
+
+function wall1(){
+
+    ctx.clearRect(0, de, 120, 697);
+     ctx.drawImage(img1, 0, de, 120, canvas.height*2); 
+      de += dc;
+      if (de < -697) {
+        de = canvas.height-697;
+      }
+  }
+
+  setInterval(wall1, 20);
+
+  function wall2(){
+      ctx.clearRect(680, pe, 120, 697);
+      ctx.drawImage(img, 680, pe, 120, canvas.height*2); // context.fillRect(x, y, width, height);
+      pe += dc;
+      if (pe < -697) {
+        pe = canvas.height-697;
+      }  
+      var mySecs = initStopwatch();
+      if (mySecs > 20 && mySecs < 40 ) {
+        dy = -6.5;
+        dc = -1.5;
+      } else if (mySecs > 40 && mySecs < 60 ) {
+      dy = -7;
+      dc = -2;
+      } else if (mySecs > 60 && mySecs < 80 ) {
+        dy = - 7.5;
+        dc = -2.5; 
+      } else if (mySecs > 80 && mySecs < 100) {
+        dy = -8;
+        dc = -3;
+      } else if (mySecs > 100) {
+        dy = -9;
+        dc = -3.5;
+      }
+      var metr = "0000";
+      ctx.drawImage(record , 685, 0, 70, 50);
+      ctx.textAlign = "center";
+      ctx.font = "20px Arial";
+      ctx.fillStyle = "white";
+
+      ctx.fillText(Math.floor(mySecs), rec, 44);
+      if (mySecs > 0 && mySecs < 10) {
+        metr = "0000"
+        ctx.fillText(metr, rec1, 44);
+      } else if (mySecs > 10 && mySecs < 100) {
+        metr = "000"
+        ctx.fillText(metr, rec1, 44);
+      } else if ( mySecs > 100) {
+        metr = "00"
+        ctx.fillText(metr, rec1, 44);
+      }
+      
+      
+
+      
+  }
+   setInterval(wall2, 20);
+
+setInterval(function condition () {
+		ctx.clearRect(120, q, 560, 210);
+		ctx.drawImage(myImage, 120, q, 550, 200);
+		q += -4;
+    
+}, 20);
+
+function openwindow() {
+   ctx.clearRect(n+40, 190, 80, 70);
+   ctx.drawImage(windowpic, n+20, 190, 80, 80);
+   if (j > x){
+   ctx.clearRect(n+20, 190, 80, 80);
+   n = 1000;
+    
+   }
+}
+
+setTimeout(function openwindow1() { 
+setInterval(openwindow , 20);
+}, 1055);
+
+function pers1() {
+     ctx.clearRect(j+20, b-100, 190, 120);
+     ctx.drawImage(smit2, j+25, b-60, 80, 70);
+     j += dk;
+     b += dk;
+     if (j > x ) {
+      ctx.clearRect(j+20, b-80, 190, 120);
+       j = 1000;
+        } 
+
+} 
+setTimeout(function pers11() { 
+setInterval(pers1, 20);
+}, 1190);
+
+function processKey(e) {
+
+    ctx.clearRect(x-16, z-2, 82, 102);
+    ctx.drawImage(pers, x, z, 50, 100);
+    ctx.clearRect(680, pe, 120, 697);
+      ctx.drawImage(img, 680, pe, 120, canvas.height*2);
+    ctx.clearRect(0, de, 120, 697);
+     ctx.drawImage(img1, 0, de, 120, canvas.height*2); 
+    var mySecs = initStopwatch();
+      var metr = "0000";
+      ctx.drawImage(record , 685, 0, 70, 50);
+      ctx.textAlign = "center";
+      ctx.font = "20px Arial";
+      ctx.fillStyle = "white";
+
+      ctx.fillText(Math.floor(mySecs), rec, 44);
+      if (mySecs > 0 && mySecs < 10) {
+        metr = "0000"
+        ctx.fillText(metr, rec1, 44);
+      } else if (mySecs > 10 && mySecs < 100) {
+        metr = "000"
+        ctx.fillText(metr, rec1, 44);
+      } else if ( mySecs > 100) {
+        metr = "00"
+        ctx.fillText(metr, rec1, 44);
+      } 
+      if (e.keyCode == 37) {
+        dx = -16;
+      }
+      if (e.keyCode == 39) {
+        dx = 16;
+      }
+      if (e.keyCode != 37 && e.keyCode != 39) { 
+        dx = 0;
+      }
+       if (x <= 130 ){
+         dx = 2;
+       } 
+      if (x >= 618) {
+        dx = -2;
+    }
+       x += dx;
+       return x, z;
+       if (dy == 0) {
+         dx = 0;
+       }
+
+  } 
+ setTimeout(function pers() {
+ setInterval(processKey, 20);
+ }, 2200);
+
+
+function object() {
+   ctx.clearRect(num, ves, 50, 70);
+   ctx.drawImage(mdma, num, ves, 50, 50);
+    ves += dy;
+   if(ves < -100){
+    ves = randomInteger(2000, 4000);
+   } 
+  
+   if ((num > x-53  &&  num < x+55) && ( ves < z+105 && ves > z-14 ))  {
+           
+            context=document.getElementById('Mycanvas').getContext('2d');
+            dy = 0;
+            dc = 0;
+            ctx.clearRect(num, ves, 132, 100);
+            num = 1000; 
+            ctx.clearRect(num1, ves1, 132, 100);
+            num1 = 1000; 
+            ctx.clearRect(num2, ves2, 133, 150);
+            num2 = 1000; 
+            ctx.clearRect(num3, ves3, 132, 100);
+            num3 = 1000; 
+            context.drawImage(gameover, 240, -40, 300, 300);
+            rec = 900;
+            rec1 = 900;
+            var mySecs = initStopwatch();
+            ctx.drawImage(record , 680, 0, 80, 100);
+            ctx.textAlign = "center";
+            ctx.font = "30px Arial";
+            ctx.fillStyle = "white";
+            ctx.fillText("Your distance: "+Math.floor(mySecs), 400, 220);
+           
+   }
+  
+}
+setTimeout(function moove(){
+setInterval(object, 20);
+}, randomInteger(5000, 7000));
+
+function object1() {
+   ctx.clearRect(num1, ves1, 60, 90);
+   ctx.drawImage(cocain, num1, ves1, 60, 70);
+   ves1 += dy;
+   if(ves1 < -100){
+    ves1 = randomInteger(2000, 4000);
+   }
+       if ((num1 > x-70  &&  num1 < x+60) && ( ves1 < z+105 && ves1 > z-14 ))  {
+           
+            context=document.getElementById('Mycanvas').getContext('2d');
+            dy = 0;
+            dc = 0;
+            ctx.clearRect(num, ves, 132, 100);
+            num = 1000; 
+            ctx.clearRect(num1, ves1, 132, 100);
+            num1 = 1000; 
+            ctx.clearRect(num2, ves2, 133, 150);
+            num2 = 1000; 
+            ctx.clearRect(num3, ves3, 132, 100);
+            num3 = 1000; 
+               context.drawImage(gameover, 240, -40, 300, 300);
+            rec = 900;
+            rec1 = 900;
+            var mySecs = initStopwatch();
+            ctx.drawImage(record , 680, 0, 80, 100);
+            ctx.textAlign = "center";
+            ctx.font = "30px Arial";
+            ctx.fillStyle = "white";
+            ctx.fillText("Your distance: "+Math.floor(mySecs), 400, 230);
+   }
+}
+setTimeout(function moove1(){
+setInterval(object1, 20);
+}, randomInteger(4000, 6000));
+
+function object2() {
+    ctx.clearRect(num2, ves2, 90, 130);
+   ctx.drawImage(beer, num2, ves2, 90, 110);
+   ves2 += dy;
+   if(ves2 < -150){
+    ves2 = randomInteger(2000, 4000);
+   }
+   if ((num2 > x-95  &&  num2 < x+95) && ( ves2 < z+105 && ves2 > z-14 ))  {
+           
+            context=document.getElementById('Mycanvas').getContext('2d');
+            dy = 0;
+            dc = 0;
+            ctx.clearRect(num, ves, 132, 100);
+            num = 1000; 
+            ctx.clearRect(num1, ves1, 132, 100);
+            num1 = 1000; 
+            ctx.clearRect(num2, ves2, 133, 150);
+            num2 = 1000; 
+            ctx.clearRect(num3, ves3, 132, 100);
+            num3 = 1000; 
+                context.drawImage(gameover, 240, -40, 300, 300);
+            rec = 900;
+            rec1 = 900;
+            var mySecs = initStopwatch();
+            ctx.drawImage(record , 680, 0, 80, 100);
+            ctx.textAlign = "center";
+            ctx.font = "30px Arial";
+            ctx.fillStyle = "white";
+            ctx.fillText("Your distance: "+Math.floor(mySecs), 400, 230);
+   }
+}
+
+setTimeout(function moove2(){
+setInterval(object2, 20);
+}, randomInteger(4000, 6000));
+
+function object3() {
+  ctx.clearRect(num3+25, ves3, 70, 110);
+   ctx.drawImage(syring, num3+25, ves3, 70, 90);
+   ves3 += dy;
+   if(ves3 < -100){
+    ves3 = randomInteger(2000, 4000);
+   }
+    if ((num3 > x-90  &&  num3 < x+30) && ( ves3 < z+105 && ves3 > z-14 ))  {
+           
+            context=document.getElementById('Mycanvas').getContext('2d');
+            dy = 0;
+            dc = 0;
+            ctx.clearRect(num, ves, 132, 100);
+            num = 1000; 
+            ctx.clearRect(num1, ves1, 132, 100);
+            num1 = 1000; 
+            ctx.clearRect(num2, ves2, 133, 150);
+            num2 = 1000; 
+            ctx.clearRect(num3, ves3, 132, 100);
+            num3 = 1000; 
+            context.drawImage(gameover, 240, -40, 300, 300);
+            rec = 900;
+            rec1 = 900;
+            var mySecs = initStopwatch();
+            ctx.drawImage(record , 680, 0, 80, 100);
+            ctx.textAlign = "center";
+            ctx.font = "30px Arial";
+            ctx.fillStyle = "white";
+            ctx.fillText("Your distance: "+Math.floor(mySecs), 400, 230);
+   }
+}
+
+setTimeout(function moove3(){
+setInterval(object3, 20);
+}, randomInteger(6000, 8000));
+
+  function randomInteger(min, max) {
+     var rand = min - 0.5 + Math.random() * (max - min + 1)
+     rand = Math.round(rand);
+     return rand;
+  }
+
+}
+</script>
+</body>
+</html>
